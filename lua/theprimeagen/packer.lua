@@ -1,4 +1,6 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
+-- d
+--
 
 -- Only required if you have packer configured as `opt`
 vim.cmd.packadd('packer.nvim')
@@ -70,9 +72,31 @@ return require('packer').startup(function(use)
   }
 
   use("folke/zen-mode.nvim")
-  use("github/copilot.vim")
+  -- use("github/copilot.vim")
   use("eandrju/cellular-automaton.nvim")
   use("laytan/cloak.nvim")
+
+  -- Jon Turner cusomizations
+  use("tpope/vim-rails")
+  use("tpope/vim-commentary")
+  -- use("tpope/vim-endwise")
+  -- This is just a rewrite of https://github.com/tpope/vim-endwise to leverage
+  -- Treesitter so it can be more accurate and work without having to run
+  -- Neovim's slow regex based highlighting along with nvim-treesitter highlighting.
+  use("RRethy/nvim-treesitter-endwise")
+
+  use("tpope/vim-repeat")
+
+  use("christoomey/vim-tmux-navigator")
+  use("morhetz/gruvbox")
+  use("github/copilot.vim")
+  use("AndrewRadev/ember_tools.vim")
+  use("tpope/vim-projectionist")
+
+  -- use("vim-ruby/vim-ruby")
+  -- add new plugin
+  -- :so
+  -- :PackerSync
 
 end)
 

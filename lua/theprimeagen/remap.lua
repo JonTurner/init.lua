@@ -1,5 +1,6 @@
 
 vim.g.mapleader = " "
+-- loads the NetRW
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -48,4 +49,24 @@ vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+-- JT customizations
+
+vim.keymap.set("n", "<C-s>", "<Esc>:w<CR>")
+vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>")
+vim.keymap.set("v", "<C-s>", "<Esc>:w<CR>")
+-- " Super fast window movement shortcuts
+-- nmap <C-j> <C-W>j
+-- nmap <C-k> <C-W>k
+-- nmap <C-h> <C-W>h
+-- nmap <C-l> <C-W>l
+vim.keymap.set("n", "<C-j>", "<C-W>j")
+vim.keymap.set("n", "<C-k>", "<C-W>k")
+vim.keymap.set("n", "<C-h>", "<C-W>h")
+vim.keymap.set("n", "<C-l>", "<C-W>l")
+-- " This should turn off flashing in all cases, including esc. Requires a recent version of Vim (7.4+)
+-- set belloff=all
+
+-- " Don't redraw while executing macros (good performance config)
+-- set lazyredraw
 
