@@ -3,6 +3,7 @@ vim.g.mapleader = " "
 -- loads the NetRW
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
+-- move highlighted text up or down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
@@ -70,6 +71,9 @@ vim.keymap.set("n", "<C-l>", "<C-W>l")
 -- " Don't redraw while executing macros (good performance config)
 -- set lazyredraw
 
+-- generate repo URL to code on GitHub
+-- tpope/vim-fugitive
+-- tpope/vim-rhubarb
 vim.keymap.set('n', '<Leader>gh', ':GBrowse!<CR>')
 vim.keymap.set('v', '<Leader>gh', ':GBrowse!<CR>')
 vim.keymap.set('n', '<LocalLeader>gh', ':GBrowse<CR>')
