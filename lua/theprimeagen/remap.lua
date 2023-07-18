@@ -70,3 +70,8 @@ vim.keymap.set("n", "<C-l>", "<C-W>l")
 -- " Don't redraw while executing macros (good performance config)
 -- set lazyredraw
 
+vim.keymap.set('n', '<Leader>gh', ':GBrowse!<CR>')
+vim.keymap.set('v', '<Leader>gh', ':GBrowse!<CR>')
+vim.keymap.set('n', '<LocalLeader>gh', ':GBrowse<CR>')
+vim.keymap.set('v', '<LocalLeader>gh', ':GBrowse<CR>')
+

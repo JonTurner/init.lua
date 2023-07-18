@@ -74,7 +74,11 @@ return require('packer').startup(function(use)
   use("folke/zen-mode.nvim")
   -- use("github/copilot.vim")
   use("eandrju/cellular-automaton.nvim")
-  use("laytan/cloak.nvim")
+
+  -- masks config file values with ********
+  -- use("laytan/cloak.nvim")
+  -- configure here: after/plugin/cloak.lua
+
 
   -- Jon Turner cusomizations
   use("tpope/vim-rails")
@@ -88,10 +92,23 @@ return require('packer').startup(function(use)
   use("tpope/vim-repeat")
 
   use("christoomey/vim-tmux-navigator")
-  use("morhetz/gruvbox")
+  -- use("morhetz/gruvbox")
   use("github/copilot.vim")
   use("AndrewRadev/ember_tools.vim")
   use("tpope/vim-projectionist")
+  use {
+      "folke/which-key.nvim",
+      config = function()
+          vim.o.timeout = true
+          vim.o.timeoutlen = 300
+          require("which-key").setup {
+              -- your configuration comes here
+              -- or leave it empty to use the default settings
+              -- refer to the configuration section below
+          }
+      end
+  }
+  use("tpope/vim-rhubarb")
 
   -- use("vim-ruby/vim-ruby")
   -- add new plugin
