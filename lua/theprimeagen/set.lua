@@ -35,3 +35,7 @@ vim.opt.updatetime = 50
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
+-- vimwiki/vimwiki settings
+vim.cmd('filetype plugin on')
+vim.cmd('syntax on')
+

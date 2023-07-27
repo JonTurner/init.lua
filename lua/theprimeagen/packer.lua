@@ -109,6 +109,31 @@ return require('packer').startup(function(use)
       end
   }
   use("tpope/vim-rhubarb")
+  use("ThePrimeagen/vim-be-good")
+  -- use("ellisonleao/glow.nvim")
+  use{
+      "vimwiki/vimwiki",
+      config = function()
+          vim.g.vimwiki_list = {
+              {
+                  path = '~/vimwiki/managed_billing',
+                  syntax = 'markdown',
+                  ext = '.md'
+              },
+              {
+                  path = '~/vimwiki/notes',
+                  syntax = 'markdown',
+                  ext = '.md'
+              },
+              {
+                  path = '~/vimwiki/investigations',
+                  syntax = 'markdown',
+                  ext = '.md'
+              }
+          }
+      end
+  }
+
 
   -- use("vim-ruby/vim-ruby")
   -- add new plugin

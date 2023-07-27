@@ -79,3 +79,17 @@ vim.keymap.set('v', '<Leader>gh', ':GBrowse!<CR>')
 vim.keymap.set('n', '<LocalLeader>gh', ':GBrowse<CR>')
 vim.keymap.set('v', '<LocalLeader>gh', ':GBrowse<CR>')
 
+-- vim.api.nvim_exec([[
+--   augroup FugitiveBlameGroup
+--     autocmd!
+--     autocmd FileType fugitiveblame nnoremap <buffer> <localleader>gpv :lua require('open_pivotal_story').OpenPivotalStory(vim.fn.expand("<cword>"))<cr>
+--   augroup END
+-- ]], false)
+
+-- vim.cmd([[
+--   augroup fugitive_ext
+--     autocmd!
+--     autocmd FileType fugitiveblame nnoremap <buffer> <localleader>gpv :lua require('open_pivotal_story').OpenPivotalStory(vim.fn.expand("<cword>"))<cr>
+--   augroup END
+-- ]])
+
