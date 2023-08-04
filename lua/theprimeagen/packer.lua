@@ -109,11 +109,32 @@ return require('packer').startup(function(use)
       end
   }
   use("tpope/vim-rhubarb")
+  use({
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
+  })
+--       Old text                    Command         New text
+-- --------------------------------------------------------------------------------
+--     surr*ound_words             ysiw)           (surround_words)
+--     *make strings               ys$"            "make strings"
+--     [delete ar*ound me!]        ds]             delete around me!
+--     remove <b>HTML t*ags</b>    dst             remove HTML tags
+--     'change quot*es'            cs'"            "change quotes"
+--     <b>or tag* types</b>        csth1<CR>       <h1>or tag types</h1>
+--     delete(functi*on calls)     dsf             function calls
   use("ThePrimeagen/vim-be-good")
   -- use("ellisonleao/glow.nvim")
   use{
       "vimwiki/vimwiki",
       config = function()
+          -- makes vimiwiki use markdown links as [text](text.md) instead of [text](text)
+          -- vim.g.vimwiki_markdown_link_ext = 1
+          vim.g.vimwiki_folding = ''
           vim.g.vimwiki_list = {
               {
                   path = '~/vimwiki/managed_billing',
@@ -133,6 +154,21 @@ return require('packer').startup(function(use)
           }
       end
   }
+
+  use{
+      "tools-life/taskwiki",
+      config = function()
+          vim.g.taskwiki_markup_syntax = 'markdown'
+          vim.g.taskwiki_filetypes = 'md'
+          vim.g.taskwiki_dont_fold = 1
+      end
+  }
+  -- use{
+  --     "tbabej/taskwiki",
+  --     config = function()
+  --         vim.g.taskwiki_markup_syntax = 'markdown'
+  --     end
+  -- }
 
 
   -- use("vim-ruby/vim-ruby")

@@ -39,3 +39,6 @@ vim.opt.splitright = true
 vim.cmd('filetype plugin on')
 vim.cmd('syntax on')
 
+-- no folding
+vim.wo.foldenable = false
+
