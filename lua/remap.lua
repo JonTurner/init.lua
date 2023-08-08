@@ -1,51 +1,44 @@
 
+local f = require("utils.functions")
+local r = require("utils.remaps")
+
 vim.g.mapleader = " "
--- loads the NetRW
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+r.map("n", "<leader>pv", vim.cmd.Ex, "loads the NetRW")
+r.map("v", "J", ":m '>+1<CR>gv=gv", "move highlighted text down")
+r.map("v", "K", ":m '<-2<CR>gv=gv", "move highlighted text up")
 
--- move highlighted text up or down
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-
-vim.keymap.set("n", "J", "mzJ`z")
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
-
-vim.keymap.set("n", "<leader>vwm", function()
-    require("vim-with-me").StartVimWithMe()
-end)
-vim.keymap.set("n", "<leader>svwm", function()
-    require("vim-with-me").StopVimWithMe()
-end)
+r.map("n", "J", "mzJ`z", "join lines keeping cursor in place")
+r.map("n", "<C-d>", "<C-d>zz", "1/2 page down - center cursor")
+r.map("n", "<C-u>", "<C-u>zz", "1/2 page up - center cursor")
+r.map("n", "n", "nzzzv", "center cursor on next match (opens any closed folds cursor is on)")
+r.map("n", "N", "Nzzzv", "center cursor on last match (opens any closed folds cursor is on)")
 
 -- greatest remap ever
-vim.keymap.set("x", "<leader>p", [["_dP]])
+r.map("x", "<leader>p", [["_dP]], "pastes over selected text - without affecting last yanked text")
 
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+r.map({"n", "v"}, "<leader>y", [["+y]], "yank to system clipboard")
+r.map("n", "<leader>Y", [["+Y]], "yank line to system clipboard")
 
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+r.map({"n", "v"}, "<leader>d", [["_d]], "delete to black hole register")
+r.map("i", "<C-c>", "<Esc>", "escape insert mode")
+r.map("n", "Q", "<nop>", "map Q to nothing - avoid old school Ex mode")
+-- vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+r.map("n", "<leader>f", vim.lsp.buf.format, "format current buffer")
 
--- This is going to get me cancelled
-vim.keymap.set("i", "<C-c>", "<Esc>")
+-- moves the cursor to the next error or warning in the quickfix list.
+-- vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+-- vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 
-vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+-- Neovim will navigate to the next item in the location list for the current window and then center the cursor's line in the window.
+-- vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
+-- vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+r.map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "search and replace")
+r.map("n", "<leader>x", "<cmd>!chmod +x %<CR>", "make file executable - chmod +x", { silent = true })
 
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
-
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/packer.lua<CR>");
-vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
+r.map("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/packer.lua<CR>", "open packer")
+r.map("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>", "make it rain")
 
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
@@ -53,31 +46,26 @@ end)
 
 -- JT customizations
 
-vim.keymap.set("n", "<C-s>", "<Esc>:w<CR>")
-vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>")
-vim.keymap.set("v", "<C-s>", "<Esc>:w<CR>")
+r.map("n", "<C-s>", "<Esc>:w<CR>", "save file")
+r.map("v", "<C-s>", "<Esc>:w<CR>", "save file")
+r.map("i", "<C-s>", "<Esc>:w<CR>", "save file")
 -- " Super fast window movement shortcuts
--- nmap <C-j> <C-W>j
--- nmap <C-k> <C-W>k
--- nmap <C-h> <C-W>h
--- nmap <C-l> <C-W>l
-vim.keymap.set("n", "<C-j>", "<C-W>j")
-vim.keymap.set("n", "<C-k>", "<C-W>k")
-vim.keymap.set("n", "<C-h>", "<C-W>h")
-vim.keymap.set("n", "<C-l>", "<C-W>l")
+r.map("n", "<C-j>", "<C-W>j", "move to window below")
+r.map("n", "<C-k>", "<C-W>k", "move to window above")
+r.map("n", "<C-h>", "<C-W>h", "move to window left")
+r.map("n", "<C-l>", "<C-W>l", "move to window right")
 -- " This should turn off flashing in all cases, including esc. Requires a recent version of Vim (7.4+)
 -- set belloff=all
-
 -- " Don't redraw while executing macros (good performance config)
 -- set lazyredraw
 
 -- generate repo URL to code on GitHub
 -- tpope/vim-fugitive
 -- tpope/vim-rhubarb
-vim.keymap.set('n', '<Leader>gh', ':GBrowse!<CR>')
-vim.keymap.set('v', '<Leader>gh', ':GBrowse!<CR>')
-vim.keymap.set('n', '<LocalLeader>gh', ':GBrowse<CR>')
-vim.keymap.set('v', '<LocalLeader>gh', ':GBrowse<CR>')
+r.map("n", "<Leader>gh", ":GBrowse!<CR>", "GitHub URL to code")
+r.map("v", "<Leader>gh", ":GBrowse!<CR>", "GitHub URL to code w/ lines")
+r.map("n", "<LocalLeader>gh", ":GBrowse!<CR>", "GitHub URL to code")
+r.map("v", "<LocalLeader>gh", ":GBrowse!<CR>", "GitHub URL to code w/ lines")
 
 -- vim.api.nvim_exec([[
 --   augroup FugitiveBlameGroup
