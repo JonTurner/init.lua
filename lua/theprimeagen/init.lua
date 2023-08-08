@@ -1,3 +1,19 @@
+--                                     ██
+--                                    ░░
+--  ███████   █████   ██████  ██    ██ ██ ██████████
+-- ░░██░░░██ ██░░░██ ██░░░░██░██   ░██░██░░██░░██░░██
+--  ░██  ░██░███████░██   ░██░░██ ░██ ░██ ░██ ░██ ░██
+--  ░██  ░██░██░░░░ ░██   ░██ ░░████  ░██ ░██ ░██ ░██
+--  ███  ░██░░██████░░██████   ░░██   ░██ ███ ░██ ░██
+-- ░░░   ░░  ░░░░░░  ░░░░░░     ░░    ░░ ░░░  ░░  ░░
+--
+--  ▓▓▓▓▓▓▓▓▓▓
+-- ░▓ author ▓ Jon Turner (sort of **cough** ThePrimeagen )
+-- ░▓ code   ▓ https://github.com/JonTurner/init.lua
+-- ░▓ mirror ▓ https://github.com/JonTurner/init.lua
+-- ░▓▓▓▓▓▓▓▓▓▓
+-- ░░░░░░░░░░
+
 require("theprimeagen.set")
 require("theprimeagen.remap")
 

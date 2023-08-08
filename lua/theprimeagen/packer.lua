@@ -131,9 +131,14 @@ return require('packer').startup(function(use)
   -- use("ellisonleao/glow.nvim")
   use{
       "vimwiki/vimwiki",
+      init = function()
+          -- attempting to enable copilot in vimwiki
+          -- VimWiki was overriding the <TAB> complettion for copilot
+          vim.g.vimwiki_key_mappings = { table_mappings = 0, }
+      end,
       config = function()
           -- makes vimiwiki use markdown links as [text](text.md) instead of [text](text)
-          -- vim.g.vimwiki_markdown_link_ext = 1
+          vim.g.vimwiki_markdown_link_ext = 1
           vim.g.vimwiki_folding = ''
           vim.g.vimwiki_list = {
               {
