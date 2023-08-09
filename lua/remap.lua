@@ -67,7 +67,7 @@ r.map("n", "<Leader>gh", ":GBrowse!<CR>", "GitHub URL to code")
 r.map("v", "<Leader>gh", ":GBrowse!<CR>", "GitHub URL to code w/ lines")
 r.map("n", "<LocalLeader>gh", ":GBrowse!<CR>", "GitHub URL to code")
 r.map("v", "<LocalLeader>gh", ":GBrowse!<CR>", "GitHub URL to code w/ lines")
-
+-- require("open_pivotal_story")
 -- vim.api.nvim_exec([[
 --   augroup FugitiveBlameGroup
 --     autocmd!
