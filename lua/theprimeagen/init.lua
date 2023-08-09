@@ -14,8 +14,8 @@
 -- ░▓▓▓▓▓▓▓▓▓▓
 -- ░░░░░░░░░░
 
-require("set")
-require("remap")
+require("theprimeagen.set")
+require("theprimeagen.remap")
 
 -- DO NOT INCLUDE THIS
 vim.opt.rtp:append("~/personal/streamer-tools")
