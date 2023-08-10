@@ -22,7 +22,6 @@ r.map({"n", "v"}, "<leader>y", [["+y]], "yank to system clipboard")
 r.map("n", "<leader>Y", [["+Y]], "yank line to system clipboard")
 
 r.map({"n", "v"}, "<leader>d", [["_d]], "delete to black hole register")
-r.map("i", "<C-c>", "<Esc>", "escape insert mode")
 r.map("n", "Q", "<nop>", "map Q to nothing - avoid old school Ex mode")
 -- vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 r.map("n", "<leader>f", vim.lsp.buf.format, "format current buffer")
@@ -67,6 +66,21 @@ r.map("n", "<Leader>gh", ":GBrowse!<CR>", "GitHub URL to code")
 r.map("v", "<Leader>gh", ":GBrowse!<CR>", "GitHub URL to code w/ lines")
 r.map("n", "<LocalLeader>gh", ":GBrowse!<CR>", "GitHub URL to code")
 r.map("v", "<LocalLeader>gh", ":GBrowse!<CR>", "GitHub URL to code w/ lines")
+
+
+r.map("n", "<C-a>", "ggVG", "Select all contents in the buffer")
+r.map("i", "<C-c>", "<Esc>", "escape insert mode")
+r.map("i", "jk", "<esc>", "escape insert mode")
+
+-- Easier navigation to the beginning or the start of the line
+r.map({"n", "v"}, "H", "<Home>", "Move to the beginning of the line")
+r.map({"n", "v"}, "L", "<End>", "Move to the end of the line")
+
+-- Clear the search highlight by pressing <ESC>
+-- r.map({ "i", "n" }, "<esc>", "<cmd>nohlsearch<cr><esc>", "Escape & clear highlighted search")
+
+
+
 -- require("open_pivotal_story")
 -- vim.api.nvim_exec([[
 --   augroup FugitiveBlameGroup
