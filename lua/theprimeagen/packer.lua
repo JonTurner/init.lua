@@ -168,6 +168,16 @@ return require('packer').startup(function(use)
           vim.g.taskwiki_dont_fold = 1
       end
   }
+
+  -- https://github.com/ryanoasis/nerd-fonts/#option-4-homebrew-fonts
+  -- brew tap homebrew/cask-fonts
+  -- brew install font-hack-nerd-font
+  -- have to configure iterm2 to use the nerd font --> Appearance --> Change Font
+  use("nvim-tree/nvim-web-devicons")
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
   -- use{
   --     "tbabej/taskwiki",
   --     config = function()
