@@ -66,3 +66,50 @@ vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 vim.g.python3_host_prog = "/opt/homebrew/bin/python3"
+
+vim.g.LanguageClient_serverCommands = {
+    sql = {'sql-language-server', 'up', '--method', 'stdio'}
+}
+require'lspconfig'.sqlls.setup{
+   cmd = {"/Users/jon.turner/.local/share/nvim/mason/bin/sql-language-server", "up", "--method", "stdio"},
+   root_dir = function(fname)
+      return require'lspconfig'.util.root_pattern('.git')(fname) or require'lspconfig'.util.path.dirname(fname)
+   end,
+}
+require("which-key").setup {
+  -- other which-key settings can go here
+}
+
+require("which-key").register({
+  ["<leader>"] = {
+    g = {
+      name = "Github",  -- optional group name for "a"
+      s = "Git Status"
+    },
+    a = {
+      name = "Harpoon - add file"
+    },
+    p = {
+      name = "Telescope",
+      f = "Find File",
+      s = "Grep"
+    },
+    v = {
+      name = "CoPilot",
+      h = "CoPilot Help",
+      p = {
+        name = "Packer",
+      },
+    },
+    w = {
+      name = "VimWiki"
+    },
+    z = {
+      name = "Zoom",
+      z = "Zoom In",
+      Z = "Zoom Out"
+    },
+
+  },
+})
+

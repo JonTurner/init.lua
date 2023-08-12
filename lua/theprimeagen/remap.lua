@@ -11,8 +11,8 @@ vim.keymap.set("n", "J", "mzJ`z")
 -- r.map("n", "J", "mzJ`z", "join lines keeping cursor in place")
 r.map("n", "<C-d>", "<C-d>zz", "1/2 page down - center cursor")
 r.map("n", "<C-u>", "<C-u>zz", "1/2 page up - center cursor")
-r.map("n", "n", "nzzzv", "center cursor on next match (opens any closed folds cursor is on)")
-r.map("n", "N", "Nzzzv", "center cursor on last match (opens any closed folds cursor is on)")
+-- r.map("n", "n", "nzzzv", "center cursor on next match (opens any closed folds cursor is on)")
+-- r.map("n", "N", "Nzzzv", "center cursor on last match (opens any closed folds cursor is on)")
 
 -- greatest remap ever
 r.map("x", "<leader>p", [["_dP]], "pastes over selected text - without affecting last yanked text")
@@ -37,12 +37,13 @@ r.map("n", "<leader>f", vim.lsp.buf.format, "format current buffer")
 r.map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "search and replace")
 r.map("n", "<leader>x", "<cmd>!chmod +x %<CR>", "make file executable - chmod +x", { silent = true })
 
-r.map("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/packer.lua<CR>", "open packer")
-r.map("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>", "make it rain")
+r.map("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/ThePrimeagen/packer.lua<CR>", "open packer")
+-- r.map("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>", "make it rain")
 
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
-end)
+end, {  desc = "Shout Out (resource lua file)" })
+
 
 -- JT customizations
 
